@@ -1,0 +1,82 @@
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: initial;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+/*#result_list > tbody > tr > td {*/
+/*    vertical-align: middle !important;*/
+/*}*/
+@media (min-width: 992px) {
+    .sidebar-mini.sidebar-collapse .content-wrapper, .sidebar-mini.sidebar-collapse .main-footer, .sidebar-mini.sidebar-collapse .main-header {
+    margin-left: 0!important;
+    margin-right: 73px!important;
+    }
+}
+
+#changelist > div:nth-child(1) > div > div.row > div.col-12.col-sm-4 > a {
+    margin-right: 1px;
+    margin-left: 1px;
+}
+
+body {
+    margin: 0;
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: right;
+    background-color: #fff;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+}
+
+body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .content-wrapper, body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-footer, body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-header {
+    transition: margin-left .3s ease-in-out;
+    margin-right: 250px;
+}
+
+@media (min-width: 768px) {
+    body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .content-wrapper, body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-footer, body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-header {
+        transition: margin-left .3s ease-in-out;
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 576px) {
+    .float-sm-right {
+        float: left !important;
+    }
+}
+
+.card-title {
+    float: right;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.float-right {
+    float: left !important;
+}
+
+#action-toggle {
+    margin-right: 12px;
+}
+
