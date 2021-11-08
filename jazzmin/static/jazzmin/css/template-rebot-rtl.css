@@ -1,0 +1,29 @@
+.bg-primary {
+    background-color: #5e72e4 !important;
+}
+
+.brand-link .brand-image {
+    float: right;
+    line-height: .8;
+    margin-left: 0.8rem;
+    margin-right: 1.5rem;
+    margin-top: -3px;
+    max-height: 33px;
+    width: auto;
+}
+
+[class*=sidebar-light] .brand-link {
+    border-bottom: 1px solid #dee2e600;
+}
+
+.main-header {
+    border-bottom: 1px solid #dee2e61a;
+    z-index: 1034;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+     float: left;
+    padding-right: 0.5rem;
+    color: #6c757d;
+    content: "/";
+}
