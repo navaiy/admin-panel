@@ -7,11 +7,11 @@
 {% endif %}
 
 {% if results %}
-    <div class="card">
+    <div class="card mt-2">
         <div class="card-body table-responsive p-0">
-            <table id="result_list" class="table table-striped">
-                <thead>
-                    <tr>
+            <table id="result_list" class="table table-hover">
+                <thead >
+                    <tr >
                         {% for header in result_headers %}
                         <th class="{% header_class header forloop %}" tabindex="0" rowspan="1" colspan="1">
                             <div class="text">

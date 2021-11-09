@@ -1,3 +1,4 @@
+{% load admin_list %}
 {% load i18n static jazzmin admin_urls %}
 {% get_current_language as LANGUAGE_CODE %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
@@ -274,6 +275,7 @@
 
 
 
+
                                                                 {% if model.url %}{{ model.url }}{% else %}javascript:void(0){% endif %}"
                                                            class="nav-link">
                                                             <i class="nav-icon {{ model.icon }}"></i>
@@ -300,12 +302,16 @@
                 <div class="content-header bg-primary">
                     <div class="container-fluid">
                         <div class="row" style="padding-bottom: 80px">
-                            <div class="col-auto col-sm-3 d-flex">
+                            <div class="col-6 d-flex">
                                 <h1 class="ml-3 ">{% block content_title %}{% endblock %}</h1>
                                 {% block breadcrumbs %}{% endblock %}
                             </div>
-                            <div class="col-auto col-sm-9">
-
+                            <div class="col-6 ">
+                                {% block object-tools %}
+                                    {% block object-tools-items %}
+                                        {% change_list_object_tools %}
+                                    {% endblock %}
+                                {% endblock %}
                             </div>
                         </div>
                     </div>
