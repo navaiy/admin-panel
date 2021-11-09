@@ -66,3 +66,45 @@
     color: #5b6886;
 }
 
+.nav-pills .nav-link.active {
+    color: #fff !important;
+    background-color: #5e72e4 !important;
+}
+
+#app_form div.card.card-primary.card-outline {
+    border-top: 0 solid #ddce0a !important;
+}
+
+#jazzy-actions div.card.card-primary.card-outline {
+    border-top: 0 solid #ddce0a !important;
+}
+
+.cform-control {
+    display: block;
+    width: 100%;
+    height: calc(2rem);
+    padding: 0.2rem 0.75rem !important;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius: 0.25rem;
+    box-shadow: inset 0 0 0 transparent;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+/*#app_form > div > div.col-12.col-lg-9 > div > div.card-body div div div input:enabled {*/
+/*    border: 1px solid #0b75c9 !important;*/
+/*}*/
+/*input:active {*/
+/*    border: 1px solid #0b75c9 !important;*/
+/*}*/
+/*#app_form > div > div.col-12.col-lg-9 > div > div.card-body > div.form-group.field-title > div  :active,*/
+/*#app_form > div > div.col-12.col-lg-9 > div > div.card-body > div.form-group.field-title > div :focus{*/
+/*    border-color: #00c;*/
+/*}*/
+/*input:active,*/
+/*input:focus {*/
+/*    border: none;*/
+/*}*/
