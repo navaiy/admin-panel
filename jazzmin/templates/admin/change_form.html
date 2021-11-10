@@ -29,7 +29,7 @@
                     {{ opts.verbose_name_plural|capfirst }}
                 {% endif %}
             </li>
-            <li class="breadcrumb-item ">
+            <li class="">
                 {% if add %}
                     {% blocktrans with name=opts.verbose_name %}Add {{ name }}{% endblocktrans %}
                 {% else %}
@@ -71,7 +71,7 @@
 
                 {% block field_sets %}
                     <div class="col-12 col-lg-9">
-                        <div class="card card-primary card-outline">
+                        <div class="card ">
                             <div class="card-header">
                                 <div class="card-title">
                                     {{ title }}{% block pretitle %}{% endblock %}
@@ -101,6 +101,7 @@
                                         <div class="object-tools">
                                             {% block object-tools-items %}
                                                 {% change_form_object_tools %}
+                                                <div class="mb-2"></div>
                                                 {% block extra_actions %}{% endblock %}
                                             {% endblock %}
                                         </div>

@@ -195,7 +195,10 @@
                 <li class="nav-item dropdown">
 
                     {% if jazzmin_settings.user_avatar %}
-                        <img src="{% get_user_avatar request.user %}" width="36px"
+                        <img
+{#                                src="{% get_user_avatar request.user %}"#}
+                                src="https://picsum.photos/130/130?image=1027"
+                                width="36px"
                              class="img-circle elevation-2" alt="User Image">
                     {% else %}
                         <i class="fas fa-inverse user-profile fa-user-circle"></i>
@@ -277,6 +280,11 @@
 
 
 
+
+
+
+
+
                                                                 {% if model.url %}{{ model.url }}{% else %}javascript:void(0){% endif %}"
                                                            class="nav-link">
                                                             <i class="nav-icon {{ model.icon }}"></i>
@@ -309,7 +317,7 @@
                                 {% block breadcrumbs %}{% endblock %}
                             </div>
                             <div class="col-6 ">
-                                {% if cl.result_list %}
+                                {% if cl %}
                                     {% block object-tools %}
                                         {% block object-tools-items %}
                                             {% change_list_object_tools %}
@@ -317,43 +325,57 @@
                                     {% endblock %}
                                 {% endif %}
                             </div>
+                            <div class="col-12" style="margin-bottom: -29px;margin-top: 13px;">
+                                {% block messages %}
+                                    {% for message in messages %}
+                                        {% if message.tags == 'success' %}
+                                            <div class="alert alert-success alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                        aria-hidden="true">
+                                                    ×
+                                                </button>
+                                                <i class="icon fa fa-check"></i>{{ message|capfirst }}
+                                            </div>
+                                        {% elif message.tags == 'error' %}
+                                            <div class="alert alert-danger alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                        aria-hidden="true">
+                                                    ×
+                                                </button>
+                                                <i class="icon fa fa-ban"></i>{{ message|capfirst }}
+                                            </div>
+                                        {% elif message.tags == 'warning' %}
+                                            <div class="alert alert-warning alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                        aria-hidden="true">
+                                                    ×
+                                                </button>
+                                                <i class="icon fa fa-exclamation-triangle"></i>{{ message|capfirst }}
+                                            </div>
+                                        {% elif message.tags == 'info' %}
+                                            <div class="alert alert-info alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                        aria-hidden="true">
+                                                    ×
+                                                </button>
+                                                <i class="icon fa fa-info"></i>{{ message|capfirst }}
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endblock messages %}
+                            </div>
+
                         </div>
                     </div>
                 </div>
             {% endif %}
             {##M style="margin-top: -90px"#}
+
             <div class="content">
                 <div class="container-fluid">
+
                     <section id="content" class="content">
-                        {% block messages %}
-                            {% for message in messages %}
-                                {% if message.tags == 'success' %}
-                                    <div class="alert alert-success alert-dismissible">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
-                                        </button>
-                                        <i class="icon fa fa-check"></i>{{ message|capfirst }}
-                                    </div>
-                                {% elif message.tags == 'error' %}
-                                    <div class="alert alert-danger alert-dismissible">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
-                                        </button>
-                                        <i class="icon fa fa-ban"></i>{{ message|capfirst }}
-                                    </div>
-                                {% elif message.tags == 'warning' %}
-                                    <div class="alert alert-warning alert-dismissible">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
-                                        </button>
-                                        <i class="icon fa fa-exclamation-triangle"></i>{{ message|capfirst }}
-                                    </div>
-                                {% elif message.tags == 'info' %}
-                                    <div class="alert alert-info alert-dismissible">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
-                                        </button>
-                                        <i class="icon fa fa-info"></i>{{ message|capfirst }}
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-                        {% endblock messages %}
+
                         <div class="row">
                             {% block content %} {% endblock %}
                         </div>
