@@ -224,7 +224,13 @@
 }
 
 #jazzy-sidebar div nav ul li a i {
-    color: #5D29BEFF !important;
+    color: #577db6 !important;
+}
+
+.nav-sidebar .nav-header {
+    font-size: .9rem;
+    padding: 0.5rem 0.75rem;
+    color: #009688;
 }
 
 .nav-pills .nav-link.active {

@@ -47,7 +47,7 @@
     <div id="content-main" class="col-12" style="margin-top: -80px">
         <form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.model_name }}_form" novalidate>
             {% csrf_token %}
-            {% block form_top %}{% endblock %}
+{#            {% block form_top %}{% endblock %}#}
 
             {% if errors %}
                 <div class="callout callout-danger">

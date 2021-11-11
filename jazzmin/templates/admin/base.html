@@ -56,7 +56,7 @@
 <body class="hold-transition{% if not jazzmin_settings.show_sidebar %} no-sidebar{% else %} sidebar-mini{% endif %} {% sidebar_status request %} {% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %} {{ jazzmin_ui.body_classes }}"
       data-admin-utc-offset="{% now "Z" %}">
 
-<div class="wrapper">
+<div class="wrapper" >
 
     {% if not is_popup %}
         <nav class="main-header navbar navbar-expand navbar-dark {{ jazzmin_ui.navbar_classes }} bg-primary"
@@ -217,7 +217,7 @@
             {% if jazzmin_settings.show_sidebar %}
                 {% get_side_menu as side_menu_list %}
 
-                <aside class="main-sidebar elevation-2  sidebar-light bg-white" id="jazzy-sidebar">
+                <aside class="main-sidebar elevation-2  sidebar-light bg-white" id="jazzy-sidebar" >
 
                     <a href="{% url 'admin:index' %} " class="brand-link {{ jazzmin_ui.brand_classes }} py-4"
                        id="jazzy-logo">
@@ -287,6 +287,8 @@
 
 
 
+
+
                                                                 {% if model.url %}{{ model.url }}{% else %}javascript:void(0){% endif %}"
                                                            class="nav-link">
                                                             <i class="nav-icon {{ model.icon }}"></i>
@@ -313,20 +315,21 @@
                 <div class="content-header bg-primary">
                     <div class="container-fluid">
                         <div class="row" style="padding-bottom: 80px">
-                            <div class="col-6 d-flex">
+                            <div class="{% if cl %}col-6{% else %} col-12{% endif %} d-flex">
 
                                 <h1 class="ml-3 ">{% block content_title %}{% endblock %}</h1>
                                 {% block breadcrumbs %}{% endblock %}
                             </div>
-                            <div class="col-6 ">
-                                {% if cl %}
+                            {% if cl %}
+                                <div class="col-6 ">
                                     {% block object-tools %}
                                         {% block object-tools-items %}
                                             {% change_list_object_tools %}
                                         {% endblock %}
                                     {% endblock %}
-                                {% endif %}
-                            </div>
+                                </div>
+                            {% endif %}
+
                             <div class="col-12" style="margin-bottom: -29px;margin-top: 13px;">
                                 {% block messages %}
                                     {% for message in messages %}
@@ -396,8 +399,8 @@
                     <b>{% trans 'Jazzmin version' %}</b> {% get_jazzmin_version %}
                 </div>
                 {% autoescape off %}
-                    <strong>{% trans 'Copyright' %} &copy; {% now 'Y' %} {{ jazzmin_settings.copyright }}.</strong>
-                    {% trans 'All rights reserved.' %}
+                    <strong>Made by Arnica Company</strong>
+
                 {% endautoescape %}
             </footer>
             {% if jazzmin_settings.show_ui_builder %}
