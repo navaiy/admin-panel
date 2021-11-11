@@ -196,10 +196,10 @@
 
                     {% if jazzmin_settings.user_avatar %}
                         <img
-{#                                src="{% get_user_avatar request.user %}"#}
+                                {#                                src="{% get_user_avatar request.user %}"#}
                                 src="https://picsum.photos/130/130?image=1027"
                                 width="36px"
-                             class="img-circle elevation-2" alt="User Image">
+                                class="img-circle elevation-2" alt="User Image">
                     {% else %}
                         <i class="fas fa-inverse user-profile fa-user-circle"></i>
                     {% endif %}
@@ -222,12 +222,11 @@
                     <a href="{% url 'admin:index' %} " class="brand-link {{ jazzmin_ui.brand_classes }} py-4"
                        id="jazzy-logo">
                         <img src="{% static jazzmin_settings.site_logo %}" alt="{{ jazzmin_settings.site_header }} Logo"
-                             class="{{ jazzmin_settings.site_logo_classes }} brand-image elevation-2"
-                             style="opacity: .8">
-                        <span class="brand-text ">{{ jazzmin_settings.site_header }}</span>
+                             class="{{ jazzmin_settings.site_logo_classes }} "
+                             style="margin-left: 0;width: 80px">
+                        <span class="brand-text " style="margin-right: -18px;">{{ jazzmin_settings.site_header }}</span>
 
                     </a>
-
                     <div class="sidebar">
 
                         <nav class="mt-2">
@@ -261,6 +260,7 @@
                                     {% endfor %}
                                 {% else %}
                                     {% for app in side_menu_list %}
+
                                         <li class="nav-item has-treeview">
                                             <a href="#" class="nav-link">
                                                 <i class="nav-icon {{ app.icon }}"></i>
@@ -271,6 +271,8 @@
                                                 {% for model in app.models %}
                                                     <li class="nav-item">
                                                         <a href="
+
+
 
 
 

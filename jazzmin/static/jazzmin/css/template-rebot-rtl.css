@@ -210,12 +210,33 @@
 .our-team:hover .social {
     bottom: 0;
 }
-.our-team:hover{
+
+.our-team:hover {
     transform: scale(1.01);
 }
-.hover-scale:hover{
+
+.hover-scale:hover {
     transform: scale(1.01);
 }
-#jazzy-tabs > li > a{
-        color: #607d8b;
+
+#jazzy-tabs > li > a {
+    color: #607d8b;
 }
+
+#jazzy-sidebar div nav ul li a i {
+    color: #5D29BEFF !important;
+}
+
+.nav-pills .nav-link.active {
+    color: #030303 !important;
+    background-color: #0000000a !important;
+    border-radius: 1rem;
+}
+
+/*#jazzy-sidebar .nav-sidebar > .nav-item {*/
+/*    width: 100%;*/
+/*    list-style-position: inside;*/
+/*    border-bottom: 1px solid #0000000f;*/
+/*    border-top: 1px solid #0000000f;*/
+
+/*}*/

@@ -133,7 +133,7 @@ msgstr ""
 #: .\jazzmin\templates\admin\index.html:7
 #: .\jazzmin\templates\admin\index.html:12
 msgid "Dashboard"
-msgstr ""
+msgstr "داشبورد"
 
 #: .\jazzmin\templates\admin\base.html:354
 msgid "Jazzmin version"

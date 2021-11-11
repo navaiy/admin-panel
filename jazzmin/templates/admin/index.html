@@ -8,8 +8,9 @@
 
 {% block breadcrumbs %}
     <ol class="breadcrumb float-sm-right">
-        <li class="breadcrumb-item"><a href="{% url 'admin:index' %}"><i class="fa fa-tachometer-alt"></i> {% trans 'Home' %}</a></li>
-        <li class="breadcrumb-item">{% trans 'Dashboard' %}</li>
+        <li class="breadcrumb-item"><a href="{% url 'admin:index' %}" class="text-white"><i class="fa fa-tachometer-alt text-white"></i> {% trans 'Home' %}</a></li>
+        <li class="breadcrumb-item"></li>
+        <li class="">{% trans 'Dashboard' %}</li>
     </ol>
 {% endblock %}
 
@@ -20,13 +21,13 @@
         {% widthratio dashboard_list|length 2 1 as middle %}
     {% endif %}
 
-    <div class="col-lg-9 col-12">
+    <div class="col-lg-9 col-12" style="margin-top: -80px">
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 {% for app in dashboard_list %}
-                    <div class="card card-primary card-outline">
+                    <div class="card elevation-1 rounded-lg">
                         <div class="card-header">
-                            <h5 class="m-0">{{ app.name }}</h5>
+                            <h5 class="m-0" style="color: #607d8b">{{ app.name }}</h5>
                         </div>
                         <div class="card-body">
                             <table class="table table-sm">
@@ -39,13 +40,13 @@
                                         <td>
                                             <div class="btn-group float-right">
                                                 {% if model.add_url %}
-                                                    <a href="{{ model.add_url }}" class="btn btn-sm {{ jazzmin_ui.button_classes.success }} btn-flat addlink">{% trans 'Add' %}</a>
+                                                    <a href="{{ model.add_url }}" class="btn btn-sm btn-success btn-flat mx-1 rounded-lg elevation-1">{% trans 'Add' %}</a>
                                                 {% endif %}
                                                 {% if model.url %}
                                                     {% if model.view_only %}
-                                                        <a href="{{ model.url }}" class="btn btn-sm {{ jazzmin_ui.button_classes.info }} btn-flat viewlink">{% trans 'View' %}</a>
+                                                        <a href="{{ model.url }}" class="btn btn-sm btn-info btn-flat mx-1 rounded-lg elevation-1">{% trans 'View' %}</a>
                                                     {% else %}
-                                                        <a href="{{ model.url }}" class="btn btn-sm {{ jazzmin_ui.button_classes.info }} btn-flat changelink">{% if model.custom %}{% trans 'Go' %}{% else %}{% trans 'Change' %}{% endif %}</a>
+                                                        <a href="{{ model.url }}" class="btn btn-sm btn-info btn-flat mx-1 rounded-lg elevation-1">{% if model.custom %}{% trans 'Go' %}{% else %}{% trans 'Change' %}{% endif %}</a>
                                                     {% endif %}
                                                 {% endif %}
                                             </div>
@@ -67,10 +68,10 @@
         </div>
 
     </div>
-    <div class="col-lg-3 col-12">
+    <div class="col-lg-3 col-12" style="margin-top: -80px">
         <div id="content-related">
             <div class="module" id="recent-actions-module">
-                <h3>{% trans 'Recent actions' %}</h3>
+                <h3 class="text-white pr-4">{% trans 'Recent actions' %}</h3>
                 {% load log %}
                 {% get_admin_log 6 as admin_log for_user user %}
                 {% if not admin_log %}

@@ -7,8 +7,14 @@ body {
     text-align: right;
 }
 
+@font-face {
+    font-family: Vazir;
+    src: url(../fonts/Farsi-Digits-Without-Latin/Vazir-Medium-FD-WOL.woff);
+}
+
 * {
     text-align: right;
+    font-family: Vazir, serif;
 }
 
 .navbar-nav {
@@ -99,6 +105,10 @@ body {
         margin-right: 0;
     }
 }
-.float-sm-right{
-    float: left!important;
+
+.float-sm-right {
+    float: left !important;
+}
+.timeline-item {
+    word-break: inherit!important;
 }
