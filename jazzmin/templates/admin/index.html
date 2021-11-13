@@ -8,7 +8,8 @@
 
 {% block breadcrumbs %}
     <ol class="breadcrumb float-sm-right">
-        <li class="breadcrumb-item"><a href="{% url 'admin:index' %}" class="text-white"><i class="fa fa-tachometer-alt text-white"></i> {% trans 'Home' %}</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'admin:index' %}" class="text-white"><i
+                class="fa fa-tachometer-alt text-white"></i> {% trans 'Home' %}</a></li>
         <li class="breadcrumb-item"></li>
         <li class="">{% trans 'Dashboard' %}</li>
     </ol>
@@ -35,18 +36,24 @@
                                 {% for model in app.models %}
                                     <tr>
                                         <td>
-                                            {% if model.url %}<a href="{{ model.url }}">{{ model.name }}</a>{% else %}{{ model.name }}{% endif %}
+                                            {% if model.url %}<a href="{{ model.url }}">{{ model.name }}</a>{% else %}
+                                                {{ model.name }}{% endif %}
                                         </td>
                                         <td>
                                             <div class="btn-group float-right">
                                                 {% if model.add_url %}
-                                                    <a href="{{ model.add_url }}" class="btn btn-sm btn-success btn-flat mx-1 rounded-lg elevation-1">{% trans 'Add' %}</a>
+                                                    <a href="{{ model.add_url }}"
+                                                       class="btn btn-sm btn-success btn-flat mx-1 rounded-lg elevation-1">{% trans 'Add' %}</a>
                                                 {% endif %}
                                                 {% if model.url %}
                                                     {% if model.view_only %}
-                                                        <a href="{{ model.url }}" class="btn btn-sm btn-info btn-flat mx-1 rounded-lg elevation-1">{% trans 'View' %}</a>
+                                                        <a href="{{ model.url }}"
+                                                           class="btn btn-sm btn-info btn-flat mx-1 rounded-lg elevation-1">{% trans 'View' %}</a>
                                                     {% else %}
-                                                        <a href="{{ model.url }}" class="btn btn-sm btn-info btn-flat mx-1 rounded-lg elevation-1">{% if model.custom %}{% trans 'Go' %}{% else %}{% trans 'Change' %}{% endif %}</a>
+                                                        <a href="{{ model.url }}"
+                                                           class="btn btn-sm btn-info btn-flat mx-1 rounded-lg elevation-1">
+                                                            {% if model.custom %}{% trans 'Go' %}{% else %}
+                                                                {% trans 'Change' %}{% endif %}</a>
                                                     {% endif %}
                                                 {% endif %}
                                             </div>
@@ -59,8 +66,8 @@
                     </div>
 
                     {% if forloop.counter == middle|add:"0" %}
-                    </div>
-                    <div class="col-md-6 col-sm-12">
+                        </div>
+                        <div class="col-md-6 col-sm-12">
                     {% endif %}
 
                 {% endfor %}
@@ -68,7 +75,7 @@
         </div>
 
     </div>
-    <div class="col-lg-3 col-12" style="margin-top: -80px">
+    <div class="col-lg-3 col-12" id="log-index">
         <div id="content-related">
             <div class="module" id="recent-actions-module">
                 <h3 class="text-white pr-4">{% trans 'Recent actions' %}</h3>
@@ -89,7 +96,9 @@
                                 {% endif %}
 
                                 <div class="timeline-item">
-                                    <span class="time"><i class="fas fa-clock"></i> {% blocktrans with timesince=entry.action_time|timesince %}{{ timesince }} ago{% endblocktrans %}</span>
+                                    <span class="time"><i
+                                            class="fas fa-clock"></i> {% blocktrans with timesince=entry.action_time|timesince %}
+                                        {{ timesince }} ago{% endblocktrans %}</span>
                                     <h3 class="timeline-header no-border">
                                         {% if entry.is_deletion or not entry.get_admin_url %}
                                             {{ entry.object_repr }}

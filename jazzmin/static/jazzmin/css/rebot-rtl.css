@@ -123,3 +123,22 @@ body {
     display: block;
     width: 100%;
 }
+
+@media (min-width: 992px) {
+    #log-index {
+        margin-top: -80px
+    }
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+     text-align: right;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}

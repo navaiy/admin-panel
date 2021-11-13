@@ -246,3 +246,14 @@
 /*    border-top: 1px solid #0000000f;*/
 
 /*}*/
+.s {
+    position: relative;
+    height: 100px;
+    background-image: url(../img/backgrand-brand.jpg);
+    background-size: cover;
+    width: 100%;
+    border-bottom-left-radius: 250% 90px;
+    border-bottom-right-radius: 250% 90px;
+    padding-bottom: 10rem;
+
+}
