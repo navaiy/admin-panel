@@ -56,7 +56,7 @@
 <body class="hold-transition{% if not jazzmin_settings.show_sidebar %} no-sidebar{% else %} sidebar-mini{% endif %} {% sidebar_status request %} {% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %} {{ jazzmin_ui.body_classes }}"
       data-admin-utc-offset="{% now "Z" %}">
 
-<div class="wrapper" >
+<div class="wrapper">
 
     {% if not is_popup %}
         <nav class="main-header navbar navbar-expand navbar-dark {{ jazzmin_ui.navbar_classes }} bg-primary"
@@ -217,9 +217,11 @@
             {% if jazzmin_settings.show_sidebar %}
                 {% get_side_menu as side_menu_list %}
 
-                <aside class="main-sidebar elevation-2  sidebar-light bg-white" id="jazzy-sidebar" >
+                <aside class="main-sidebar elevation-2  sidebar-light bg-white" id="jazzy-sidebar">
+                    <?xml version="1.0" standalone="no"?>
 
-                    <a href="{% url 'admin:index' %} " class="brand-link {{ jazzmin_ui.brand_classes }} py-4"
+
+                    <a href="{% url 'admin:index' %} " class="brand-link {{ jazzmin_ui.brand_classes }} py-4 back" style="background-color: #17a2b870"
                        id="jazzy-logo">
                         <img src="{% static jazzmin_settings.site_logo %}" alt="{{ jazzmin_settings.site_header }} Logo"
                              class="{{ jazzmin_settings.site_logo_classes }} "
@@ -227,6 +229,7 @@
                         <span class="brand-text " style="margin-right: -18px;">{{ jazzmin_settings.site_header }}</span>
 
                     </a>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#17a2b870" fill-opacity="1" d="M0,160L80,176C160,192,320,224,480,240C640,256,800,256,960,245.3C1120,235,1280,213,1360,202.7L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
                     <div class="sidebar">
 
                         <nav class="mt-2">
@@ -271,6 +274,9 @@
                                                 {% for model in app.models %}
                                                     <li class="nav-item">
                                                         <a href="
+
+
+
 
 
 

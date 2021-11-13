@@ -109,6 +109,17 @@ body {
 .float-sm-right {
     float: left !important;
 }
+
 .timeline-item {
-    word-break: inherit!important;
+    word-break: inherit !important;
+}
+
+#jazzy-sidebar svg {
+    overflow: hidden !important;
+    vertical-align: baseline !important;
+}
+
+.control {
+    display: block;
+    width: 100%;
 }
