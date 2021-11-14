@@ -117,7 +117,7 @@ msgstr ""
 
 #: .\jazzmin\templates\admin\base.html:167
 msgid "Account"
-msgstr ""
+msgstr "اکانت"
 
 #: .\jazzmin\templates\admin\base.html:174
 #: .\jazzmin\templates\registration\password_change_done.html:7
@@ -127,7 +127,7 @@ msgstr ""
 
 #: .\jazzmin\templates\admin\base.html:187
 msgid "See Profile"
-msgstr ""
+msgstr "دیدن پروفایل"
 
 #: .\jazzmin\templates\admin\base.html:232
 #: .\jazzmin\templates\admin\index.html:7
@@ -456,7 +456,7 @@ msgstr ""
 #: .\jazzmin\templates\admin\import_export\import.html:105
 #: .\jazzmin\templates\admin\submit_line.html:9
 msgid "Actions"
-msgstr ""
+msgstr "اقدامات"
 
 #: .\jazzmin\templates\admin\import_export\import.html:48
 msgid "Confirm import"
@@ -868,7 +868,7 @@ msgstr ""
 msgid ""
 "Please enter your old password, for security's sake, and then enter your new "
 "password twice so we can verify you typed it in correctly."
-msgstr ""
+msgstr "لطفاً برای حفظ امنیت رمز عبور قدیمی خود را وارد کنید و سپس رمز عبور جدید خود را دو بار وارد کنید تا بتوانیم تأیید کنیم که آن را به درستی وارد کرده اید."
 
 #: .\jazzmin\templatetags\jazzmin.py:476
 #, python-brace-format
