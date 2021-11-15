@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+@font-face {
+    font-family: Vazir;
+    src: url(../fonts/Farsi-Digits-Without-Latin/Vazir-Medium-FD-WOL.woff);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    font-family: Vazir;
+}
+
+body {
+    /*background: linear-gradient(180deg, #ffffff, #776BCC);*/
+    background-image: url("../img/olga-thelavart-Q_UsyCoq3G8-unsplash.jpg");
+    background-size: cover;
+    font-family: Vazir, serif;
+
+}
+
+
+.form_login {
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.bg-gradient {
+    transform: scaleX(1.4);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    height: 350px;
+/*    background: linear-gradient(*/
+/*            87deg, #5e72e4 0, #825ee4 100%) !important;*/
+/*    background-color:#825ee4*/
+/*}*/}
+

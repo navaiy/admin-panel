@@ -5,131 +5,65 @@
 {% get_jazzmin_ui_tweaks as jazzmin_ui %}
 
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<html lang="en">{#lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}#}
+
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+    {#    <meta http-equiv="x-ua-compatible" content="ie=edge">#}
     <title>{% block title %}{{ title }} | {% trans 'Log in again' %}{% endblock %}</title>
-
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{% static "vendor/fontawesome-free/css/all.min.css" %}">
 
-    <!-- Bootstrap and adminLTE -->
     <link rel="stylesheet" href="{% static "vendor/adminlte/css/adminlte.min.css" %}">
+    <link rel='stylesheet' href='{% static 'jazzmin/css/style-login.css' %}'>
 
-    <!-- Bootswatch theme -->
-    {% if jazzmin_ui.theme.name != 'default' %}
-        <link rel="stylesheet" href="{{ jazzmin_ui.theme.src }}" id="jazzmin-theme" />
-    {% endif %}
-
-    {% if jazzmin_ui.dark_mode_theme %}
-        <link rel="stylesheet" href="{{ jazzmin_ui.dark_mode_theme.src }}" id="jazzmin-dark-mode-theme" media="(prefers-color-scheme: dark)"/>
-    {% endif %}
-
-    <!-- Custom fixes for django -->
-    <link rel="stylesheet" href="{% static "jazzmin/css/main.css" %}">
-
-    {% if jazzmin_settings.custom_css %}
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="{% static jazzmin_settings.custom_css %}">
-    {% endif %}
-
-    <!-- favicons -->
-    <link rel="shortcut icon" href="{% static jazzmin_settings.site_icon %}" type="image/png">
-    <link rel="icon" href="{% static jazzmin_settings.site_icon %}" sizes="32x32" type="image/png">
-
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
-    {% block extrastyle %} {% endblock %}
-    {% block extrahead %} {% endblock %}
 </head>
-<body class="hold-transition jazzmin-login-page">
+<body>
+<div class="w-100 h-100" style="background-color: #172b4de3 !important;position: absolute" >
+    <div class="bg-gradient position-relative "></div>
+    <div class="form_login card rounded-lg elevation-2 p-sm-0 p-md-5   position-absolute bg-light " style="opacity: 1">
+        <div class="text-center">
+            <img src="{% static 'jazzmin/img/Visual data-bro.png' %}" alt="" class="img-fluid  float-right "
+                 style="height: 200px;width: 200px;margin-top: -100px ;    margin-right: -10px;">
+            <h3 class="text-center text-dark ">پنل کاربری</h3>
+        </div>
+        <div class="card-body mt-5">
+            <form>
+                <div class="form-group d-flex" dir="rtl">
+                    <svg style="position: absolute" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+                         fill="currentColor"
+                         color="#adb5bd"
+                         class="bi bi-person-fill mt-2" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                    <input type="email" class="form-control elevation-1 rounded-lg pr-4" id="exampleInputEmail1"
+                           aria-describedby="emailHelp" placeholder="نام کاربری">
 
-<div class="login-box">
-    <div class="login-logo">
-        <h1>{{ jazzmin_settings.site_header }}</h1>
-    </div>
 
-    <div class="card">
-        <div class="card-body">
-            <p class="login-box-msg">{{ jazzmin_settings.welcome_sign }}</p>
-            <form action="{{ app_path }}" method="post">
-                {% csrf_token %}
-                {% if user.is_authenticated %}
-                    <p class="errornote">
-                        <div class="callout callout-danger">
-                            <p>
-                                {% blocktrans trimmed %}
-                                    You are authenticated as {{ username }}, but are not authorized to
-                                    access this page. Would you like to login to a different account?
-                                {% endblocktrans %}
-                            </p>
-                        </div>
-                    </p>
-                {% endif %}
-                {% if form.errors %}
-
-                    {% if form.username.errors %}
-                    <div class="callout callout-danger">
-                        <p>{{ form.username.label }}: {{ form.username.errors|join:', ' }}</p>
-                    </div>
-                    {% endif %}
-
-                    {% if form.password.errors %}
-                    <div class="callout callout-danger">
-                        <p>{{ form.password.label }}: {{ form.password.errors|join:', ' }}</p>
-                    </div>
-                    {% endif %}
-
-                    {% if form.non_field_errors %}
-                    <div class="callout callout-danger">
-                        {% for error in form.non_field_errors %}
-                            <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-
-                {% endif %}
-                <div class="input-group mb-3">
-                    <input type="text" name="username" class="form-control" placeholder="{{ form.username.label }}" required>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                        </div>
-                    </div>
                 </div>
-                <div class="input-group mb-3">
-                    <input type="password" name="password" class="form-control" placeholder="{{ form.password.label }}" required>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
-                    </div>
+                {#            <small id="emailHelp" class="form-text text-muted mb-3 text-danger" style="margin-top: -15px">We'll never share your email with anyone#}
+                {#                else.</small>#}
+                <div class="form-group d-flex" dir="rtl">
+                    <svg style="position: absolute" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+                         fill="currentColor"
+                         class="bi bi-lock-fill mt-2" viewBox="0 0 16 16"
+                         color="#adb5bd">
+                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                    </svg>
+
+                    <input type="password" class="form-control elevation-1 rounded-lg pr-4" id="exampleInputPassword1"
+                           placeholder="رمز">
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                        <button type="submit" class="btn {{ jazzmin_ui.button_classes.primary }} btn-block">{% trans "Log in" %}</button>
-                    </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary   px-5 mt-5 elevation-1">ورود</button>
+                    <button type="submit" class="btn btn-secondary px-5 mt-5 elevation-1">ثبت نام</button>
                 </div>
+                <a href="#" class="btn btn-link text-secondary d-block mx-auto">فراموشی رمز عبور</a>
             </form>
-
         </div>
     </div>
+
 </div>
-
-<!-- jQuery -->
-<script src="{% static "admin/js/vendor/jquery/jquery.js" %}"></script>
-<!-- Bootstrap 4 -->
-<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-<!-- AdminLTE App -->
-<script src="{% static 'vendor/adminlte/js/adminlte.min.js' %}"></script>
-
-{% if jazzmin_settings.custom_js %}
-<script src="{% static jazzmin_settings.custom_js %}"></script>
-{% endif %}
-
 </body>
 </html>
