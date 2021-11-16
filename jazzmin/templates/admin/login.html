@@ -19,51 +19,101 @@
 
 </head>
 <body>
-<div class="w-100 h-100" style="background-color: #172b4de3 !important;position: absolute" >
-    <div class="bg-gradient position-relative "></div>
-    <div class="form_login card rounded-lg elevation-2 p-sm-0 p-md-5   position-absolute bg-light " style="opacity: 1">
-        <div class="text-center">
-            <img src="{% static 'jazzmin/img/Visual data-bro.png' %}" alt="" class="img-fluid  float-right "
-                 style="height: 200px;width: 200px;margin-top: -100px ;    margin-right: -10px;">
-            <h3 class="text-center text-dark ">پنل کاربری</h3>
-        </div>
-        <div class="card-body mt-5">
-            <form>
-                <div class="form-group d-flex" dir="rtl">
-                    <svg style="position: absolute" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
-                         fill="currentColor"
-                         color="#adb5bd"
-                         class="bi bi-person-fill mt-2" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>
-                    <input type="email" class="form-control elevation-1 rounded-lg pr-4" id="exampleInputEmail1"
-                           aria-describedby="emailHelp" placeholder="نام کاربری">
+<div class="w-100 h-100" style="background-color: #2125297a    !important;position: absolute;">
+
+    <div class="col-lg-6 offset-lg-3  d-flex justify-content-center align-items-center mt-1" >
+        {% if user.is_authenticated %}
+            <p class="errornote" style="margin-bottom: -49px ">
+            <div class="alert alert-danger" >
+                <p>
+                    {% blocktrans trimmed %}
+                        You are authenticated as {{ username }}, but are not authorized to
+                        access this page. Would you like to login to a different account?
+                    {% endblocktrans %}
+                </p>
+            </div>
+            </p>
+        {% endif %}
+        {% if form.errors %}
+
+            {% if form.username.errors %}
+                <div class="alert alert-danger mx-1" >
+                    <p>{{ form.username.label }}: {{ form.username.errors|join:', ' }}</p>
+                </div>
+            {% endif %}
+
+            {% if form.password.errors %}
+                <div class="alert alert-danger  mx-1" >
+                    <p>{{ form.password.label }}: {{ form.password.errors|join:', ' }}</p>
+                </div>
+            {% endif %}
+
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+        {% endif %}</div>
+    <div class="col-lg-6 offset-lg-3 h-100 d-flex justify-content-center align-items-center">
+
+        <div class="row ">
+            <div class="border-login card rounded-lg elevation-2 p-sm-0 p-md-5  bg-light ">
+                <div class="row" style="direction: rtl;">
+                    <div class="col-md-6 col-sm-12">
+                        <img src="{% static 'jazzmin/img/Visual data-bro.png' %}" alt="" class="img-fluid  float-right "
+                             style="height: 200px;width: 200px;margin-top: -100px ;    margin-right: -10px;">
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <h3 class="text-center text-dark ">پنل کاربری</h3>
+                    </div>
 
 
                 </div>
-                {#            <small id="emailHelp" class="form-text text-muted mb-3 text-danger" style="margin-top: -15px">We'll never share your email with anyone#}
-                {#                else.</small>#}
-                <div class="form-group d-flex" dir="rtl">
-                    <svg style="position: absolute" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
-                         fill="currentColor"
-                         class="bi bi-lock-fill mt-2" viewBox="0 0 16 16"
-                         color="#adb5bd">
-                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-                    </svg>
+                <div class="card-body mt-5">
+                    <form action="{{ app_path }}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group d-flex" dir="rtl">
+                            <svg style="position: absolute" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+                                 fill="currentColor"
+                                 color="#adb5bd"
+                                 class="bi bi-person-fill mt-2" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                            </svg>
+                            <input name="username" type="text" class="form-control elevation-1 rounded-lg pr-4"
+                                   id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="نام کاربری">
 
-                    <input type="password" class="form-control elevation-1 rounded-lg pr-4" id="exampleInputPassword1"
-                           placeholder="رمز">
-                </div>
+                        </div>
+                        {#            <small id="emailHelp" class="form-text text-muted mb-3 text-danger" style="margin-top: -15px">We'll never share your email with anyone#}
+                        {#                else.</small>#}
+                        <div class="form-group d-flex" dir="rtl">
+                            <svg style="position: absolute" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+                                 fill="currentColor"
+                                 class="bi bi-lock-fill mt-2" viewBox="0 0 16 16"
+                                 color="#adb5bd">
+                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                            </svg>
 
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary   px-5 mt-5 elevation-1">ورود</button>
-                    <button type="submit" class="btn btn-secondary px-5 mt-5 elevation-1">ثبت نام</button>
+                            <input name="password" type="password" class="form-control elevation-1 rounded-lg pr-4"
+                                   id="exampleInputPassword1"
+                                   placeholder="رمز">
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary   px-5 mt-5 elevation-1">ورود</button>
+                            <a href="#" class="btn btn-secondary px-5 mt-5 elevation-1">ثبت نام</a>
+                        </div>
+                        <a href="#" class="btn btn-link text-secondary d-block mx-auto">فراموشی رمز عبور</a>
+                    </form>
                 </div>
-                <a href="#" class="btn btn-link text-secondary d-block mx-auto">فراموشی رمز عبور</a>
-            </form>
+            </div>
+
+
         </div>
     </div>
-
 </div>
 </body>
 </html>
