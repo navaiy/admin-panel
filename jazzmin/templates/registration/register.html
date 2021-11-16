@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {#    <meta http-equiv="x-ua-compatible" content="ie=edge">#}
-    <title>{% block title %}{{ title }} | {% trans 'Log in again' %}{% endblock %}</title>
+    <title>ثبت نام</title>
     <link rel="stylesheet" href="{% static "vendor/fontawesome-free/css/all.min.css" %}">
 
     <link rel="stylesheet" href="{% static "vendor/adminlte/css/adminlte.min.css" %}">
@@ -19,46 +19,20 @@
 
 </head>
 <body>
-<div class="mask" >
+<div class="mask">
+    {#   error#}
+    <div class="col-lg-6 offset-lg-3  d-flex justify-content-center align-items-center mt-1">
 
-    <div class="col-lg-6 offset-lg-3  d-flex justify-content-center align-items-center mt-1" >
-        {% if user.is_authenticated %}
-            <p class="errornote" style="margin-bottom: -49px ">
-            <div class="alert alert-danger" >
-                <p>
-                    {% blocktrans trimmed %}
-                        You are authenticated as {{ username }}, but are not authorized to
-                        access this page. Would you like to login to a different account?
-                    {% endblocktrans %}
-                </p>
+        {% if form.error_messages %}
+            {% for f in form %}
+            <div class="alert alert-danger mx-1">
+                <p>{{ f.label }}:{{f.errors|join:', ' }}</p>
             </div>
-            </p>
+            {% endfor %}
         {% endif %}
-        {% if form.errors %}
-
-            {% if form.username.errors %}
-                <div class="alert alert-danger mx-1" >
-                    <p>{{ form.username.label }}: {{ form.username.errors|join:', ' }}</p>
-                </div>
-            {% endif %}
-
-            {% if form.password.errors %}
-                <div class="alert alert-danger  mx-1" >
-                    <p>{{ form.password.label }}: {{ form.password.errors|join:', ' }}</p>
-                </div>
-            {% endif %}
-
-            {% if form.non_field_errors %}
-                <div class="alert alert-danger">
-                    {% for error in form.non_field_errors %}
-                        <p>{{ error }}</p>
-                    {% endfor %}
-                </div>
-            {% endif %}
-
-        {% endif %}</div>
+    </div>
     <div class="col-lg-6 offset-lg-3 h-100 d-flex justify-content-center align-items-center">
-
+        {# form#}
         <div class="row ">
             <div class="border-login card rounded-lg elevation-2 p-sm-0 p-md-5  bg-light ">
                 <div class="row" style="direction: rtl;">
@@ -73,8 +47,7 @@
 
                 </div>
                 <div class="card-body mt-5">
-                    <form action="{{ app_path }}" method="post">
-                        {% csrf_token %}
+                    <form method="post">{% csrf_token %}
                         <div class="form-group d-flex" dir="rtl">
                             <svg style="position: absolute" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
                                  fill="currentColor"
@@ -88,23 +61,40 @@
 
                         </div>
                         <div class="form-group d-flex" dir="rtl">
+                            <svg style="position: absolute" xmlns="http://www.w3.org/2000/svg" width="20" height="23"
+                                 fill="currentColor"
+                                 class="bi bi-envelope-fill mt-2 mr-1" viewBox="0 0 16 16" color="#adb5bd">
+                                <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+                            </svg>
+                            <input name="email" type="email" class="form-control elevation-1 rounded-lg pr-4"
+                                   id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="ایمیل">
+
+                        </div>
+                        <div class="form-group d-flex" dir="rtl">
                             <svg style="position: absolute" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
                                  fill="currentColor"
                                  class="bi bi-lock-fill mt-2" viewBox="0 0 16 16"
                                  color="#adb5bd">
                                 <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
                             </svg>
-
-                            <input name="password" type="password" class="form-control elevation-1 rounded-lg pr-4"
-                                   id="exampleInputPassword1"
+                            <input name="password1" type="password" class="form-control elevation-1 rounded-lg pr-4"
                                    placeholder="رمز">
                         </div>
-
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary   px-5 mt-5 elevation-1">ورود</button>
-                            <a href="{% url 'register' %}" class="btn btn-secondary px-5 mt-5 elevation-1">ثبت نام</a>
+                        <div class="form-group d-flex" dir="rtl">
+                            <svg style="position: absolute" xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+                                 fill="currentColor"
+                                 class="bi bi-lock-fill mt-2" viewBox="0 0 16 16"
+                                 color="#adb5bd">
+                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                            </svg>
+                            <input name="password2" type="password" class="form-control elevation-1 rounded-lg pr-4"
+                                   placeholder="تایید رمز">
                         </div>
-                        <a href="#" class="btn btn-link text-secondary d-block mx-auto">فراموشی رمز عبور</a>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary   px-5 mt-5 elevation-1">ثبت نام</button>
+                            <a href="{% url 'admin:login' %}" class="btn btn-secondary px-5 mt-5 elevation-1">ورود</a>
+                        </div>
                     </form>
                 </div>
             </div>

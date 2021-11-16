@@ -21,12 +21,24 @@ body {
 
 }
 
+.mask {
+
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    background-color: #2125297a;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+    overflow: auto;
+}
+
 
 .border-login {
 
-    border-bottom-left-radius: 4rem!important;
-    border-top-right-radius: 4rem!important;
-opacity: 0.7
+    border-bottom-left-radius: 4rem !important;
+    border-top-right-radius: 4rem !important;
+    opacity: 0.7
 }
 
 .bg-gradient {
