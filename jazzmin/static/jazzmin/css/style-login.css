@@ -21,6 +21,12 @@ body {
 
 }
 
+@media (max-width: 576px) {
+    #form-l {
+        margin-top: 100px !important;
+    }
+}
+
 .mask {
 
     height: 100%;
