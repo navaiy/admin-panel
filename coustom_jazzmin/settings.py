@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'jazzmin',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # 'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -107,11 +107,8 @@ LOCALE_PATHS = (
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 # LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'fa-ir'
-LANGUAGES = (
-    ('fa-ir', 'Farsi'),
-    ('en-us', 'English'),
-)
+
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -133,3 +130,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 JAZZMIN_SETTINGS = {
     "language_chooser": True,
 }
+LANGUAGE_CODE = 'fa-ir'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+LANGUAGES = (
+    ('fa-ir', 'Farsi'),
+    ('en-us', 'English'),
+)

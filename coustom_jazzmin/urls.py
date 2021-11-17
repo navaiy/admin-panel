@@ -20,7 +20,9 @@ from jazzmin.view import register
 
 urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
-    path("", include("django.contrib.auth.urls")),
     path('admin/', admin.site.urls),
+    # my add
+    path("", include("django.contrib.auth.urls")),
     path('register', register, name='register'),
 ]
+
