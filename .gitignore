@@ -7,6 +7,7 @@ coustom_jazzmin/
 locale/
 manage.py/
 .idea/
+
 *.log
 *.pot
 *.pyc
