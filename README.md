@@ -7,7 +7,7 @@ This admin panel has been edited by jazzmin and works only for the right languag
 
 ## Installation
 ```
-pip install git+https://github.com/navaiy/admin-panel.git@issue/jazzmin
+pip install git+https://github.com/navaiy/admin-panel.git@main/jazzmin
 ```
 Add jazzmin to the first list before admin app
 ```
