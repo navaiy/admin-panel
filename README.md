@@ -15,7 +15,7 @@ INSTALLED_APPS = [
 'jazzmin',
 ]
 ```
-change in setting.py
+change in settings.py
 ```
 LANGUAGE_CODE = 'fa-ir'
 ```
