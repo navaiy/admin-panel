@@ -156,3 +156,5 @@ dmypy.json
 cython_debug/
 MyApp/
 # End of https://www.toptal.com/developers/gitignore/api/django
+/coustom_jazzmin/
+/locale/
