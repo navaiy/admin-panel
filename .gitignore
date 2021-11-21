@@ -3,9 +3,10 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=django
 
 ### Django ###
-#coustom_jazzmin/
-#locale/
-#manage.py/
+coustom_jazzmin/
+locale/
+manage.py/
+.idea/
 *.log
 *.pot
 *.pyc
