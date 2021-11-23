@@ -21,7 +21,12 @@ LANGUAGE_CODE = 'fa-ir'
 ```
 add to urls.pu
 ```
+from django.urls import include
+from jazzmin.view import register
+
 urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
+    path("", include("django.contrib.auth.urls")),
+    path('register', register, name='register'), ]
 ]
 ```
