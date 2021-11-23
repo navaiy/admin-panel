@@ -4,29 +4,38 @@
 {% block submit-row %}
     {% if app_label == 'auth' %}
         <div class="our-team rounded-lg elevation-2">
-        <div class="picture">
-            <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
-        </div>
-        <div class="text-center">
-            <h3 class="text-center">{{ request.user }}</h3>
-            <h4 class="title">
-                {% if request.user.get_full_name %}
-                    {{ request.user.get_full_name }}
+            <div class="picture">
+                {% if jazzmin_settings|has_jazzmin_setting:"user_avatar" %}
+                    <img
+                            src="{% get_user_avatar request.user %}"
+                            {#                                src="https://picsum.photos/130/130?image=1027"#}
+                            width="36px"
+                            class="img-fluid" alt="User Image">
                 {% else %}
-                    نام و فامیل وارد کنید
+                    <i class="fas fa-inverse user-profile fa-user-circle"></i>
                 {% endif %}
 
-            </h4>
-            <h5 class="title">
-                {% if request.user.email%}
-                    {{ request.user.email }}
-                {% else %}
-                    test@test.com
-                {% endif %}
-            </h5>
-        </div>
+            </div>
+            <div class="text-center">
+                <h3 class="text-center">{{ request.user }}</h3>
+                <h4 class="title">
+                    {% if request.user.get_full_name %}
+                        {{ request.user.get_full_name }}
+                    {% else %}
+                        نام و فامیل وارد کنید
+                    {% endif %}
 
-    </div>
+                </h4>
+                <h5 class="title">
+                    {% if request.user.email %}
+                        {{ request.user.email }}
+                    {% else %}
+                        test@test.com
+                    {% endif %}
+                </h5>
+            </div>
+
+        </div>
 
     {% endif %}
 

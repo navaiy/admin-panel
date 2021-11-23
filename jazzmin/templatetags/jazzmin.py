@@ -352,6 +352,9 @@ def as_json(value: Union[List, Dict]) -> str:
     """
     return json.dumps(value)
 
+@register.filter
+def has_jazzmin_setting(settings: Dict[str, Any], key: str) -> bool:
+    return key in settings and settings[key] is not None
 
 @register.simple_tag
 def get_changeform_template(adminform: AdminForm) -> str:
