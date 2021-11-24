@@ -1,4 +1,4 @@
-This admin panel has been edited by jazzmin and works only for the right languages
+This admin panel has been edited by jazzmin and works only for the rtl languages
 
 ![sds](jazzmin/static/a3.png)
 ![sds](jazzmin/static/a1.png)
